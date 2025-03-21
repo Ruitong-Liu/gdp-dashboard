@@ -427,14 +427,7 @@ def show_home_page():
             else:
                 st.error("清除德育分记录失败！")
         
-        
-        # 直接一键清除，无需确认
-        if col2.button("一键清除所有数据", type="primary", help="此操作不可恢复", key="clear_all"):
-            if clear_all_data():
-                st.success("已成功清除所有数据！")
-                st.rerun()
-            else:
-                st.error("清除数据失败！")
+
 
 # 学生德育评分页面
 def show_deduction_page():
