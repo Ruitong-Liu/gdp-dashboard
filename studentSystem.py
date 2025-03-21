@@ -146,10 +146,10 @@ def get_all_students_deductions():
             
             result.append({
                 '姓名': student,
-                '迟到扣分': total_late,
-                '打架扣分': total_fight,
-                '作业未完成扣分': total_homework,
-                '课堂违纪扣分': total_discipline,
+                '迟到': total_late,
+                '打架': total_fight,
+                '作业未完成': total_homework,
+                '课堂违纪': total_discipline,
                 '其他扣分': total_others,
                 '总扣分': total_deduction,
                 '德育分': max(0, moral_score)
@@ -289,15 +289,6 @@ def clear_all_deductions():
         print(f"清除德育分记录时出错: {e}")
         return False
 
-# 清除所有数据
-def clear_all_data():
-    try:
-        success1 = clear_all_students()
-        success2 = clear_all_deductions()
-        return success1 and success2
-    except Exception as e:
-        print(f"清除所有数据时出错: {e}")
-        return False
 
 # 应用主函数
 def main():
@@ -436,12 +427,6 @@ def show_home_page():
             else:
                 st.error("清除德育分记录失败！")
         
-        # 清除所有数据
-        st.markdown("---")
-        st.markdown("### 清除所有数据")
-        col1, col2 = st.columns([3, 1])
-        with col1:
-            st.write("清除所有学生信息和德育分记录")
         
         # 直接一键清除，无需确认
         if col2.button("一键清除所有数据", type="primary", help="此操作不可恢复", key="clear_all"):
