@@ -1,4 +1,4 @@
-# :streamlit template
+# Streamlit template
 
 A simple Streamlit app template.
 
